@@ -474,10 +474,6 @@ nav {
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid $divider-color;
-  background-color: #f1f3f5;
-  padding: 10px;
-  box-shadow: 0px 0px 28px rgba(211,211,211,0.5);
-  border-radius: 10px;
 }
 
 .posts > .post:last-child {
@@ -503,10 +499,11 @@ nav {
 
 .post {
 
-  background-color: #f1f3f5;
+  background-color: #f8f9fa;
   padding: 10px;
   box-shadow: 0px 0px 28px rgba(211,211,211,0.5);
   border-radius: 10px;
+  margin: 0 0 50px;
 
   h1 {
     margin-bottom: .1em;
