@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux服务命令
-date: 1995-07-19
+date: 2020-01-03
 Author: minweikai
 tags: [Linux,命令]
 comments: true
