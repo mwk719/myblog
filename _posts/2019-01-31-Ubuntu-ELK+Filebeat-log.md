@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu16 ELK+Filebeat日志管理平台搭建
 date: 2019-01-31
 Author: minweikai
-tags: [服务器,工具]
+tags: [Linux,工具]
 comments: true
 ---
 
