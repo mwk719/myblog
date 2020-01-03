@@ -3,7 +3,7 @@ layout: post
 title: jar后台启动并打印日志脚本
 date: 2019-04-16
 Author: minweikai
-tags: [服务器,命令]
+tags: [Linux,命令]
 comments: true
 ---
 
