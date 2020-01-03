@@ -5,7 +5,6 @@ date: 2019-10-09
 Author: minweikai
 tags: [精选]
 comments: true
-pinned: true
 ---
 
 ## 我们正站在变革的边缘，而这次变革将和人类的出现一般意义重大 – Vernor Vinge。如果你站在这里，你会是什么感觉？
