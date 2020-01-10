@@ -7,18 +7,30 @@ tags: [Linux,命令]
 comments: true
 ---
 
+# 我的重要但不常用命令
+
 ## Linux维护
 
 ------
 
-tail -f catalina.out  //tomcat实时查看项目日志
+```bash
+tail -f catalina.out  #tomcat实时查看日志
+tail -f catalina.out -n100 #实时查看日志后100行
 
-lsof -i: 8080  //查看端口使用
+lsof -i: 8080  #查看端口使用
 netstat -tnlp | grep 8080
 
-top  //运行的项目
-free -m  //cpu&内存的使用
-df -h  //磁盘的使用
+top  #运行的项目
+top -c #运行的项目的完整信息
+top -p pid #某线程的运行信息
+#top 命令界面交互命令：
+ m/M #内存占用排序
+ p/P #cpu占用排序
+
+ps -aux | grep 服务名称 #查看服务CPU和内存的占用率，内存占用数据单位k
+free -m  #cpu&内存的使用
+df -h  #磁盘的使用
+```
 
 
 
@@ -26,11 +38,11 @@ df -h  //磁盘的使用
 
 
 
-# service命令
+## service命令
 
 ------
 
-## nginx
+### nginx
 
 停止nginx:
 sudo systemctl stop nginx
