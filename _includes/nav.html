@@ -1,4 +1,20 @@
 <div class="wrapper-sidebar">
+
+	<!-- HTML elements for search -->
+	<p class="search">搜索栏&nbsp;<input style="height: 25px;" type="text" id="search-input" placeholder="Search blog posts.."></p>
+	<ul id="results-container"></ul>
+	<!-- or without installing anything -->
+	<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+	<script>
+	var sjs = SimpleJekyllSearch({
+	  searchInput: document.getElementById('search-input'),
+	  resultsContainer: document.getElementById('results-container'),
+	  json: '/search.json'
+	})
+	var sjs = SimpleJekyllSearch({ ...options })
+	sjs.search('Hello 闵渭凯')
+	</script>
+
   <header class="sidebar clearfix">
     <div class="site-info">
       {% if site.avatar %}
@@ -8,6 +24,8 @@
       <p class="site-description">{{ site.description }}</p>
     </div>
   </header>
+  
+  
 
   <div class="navlist">
     <nav>
@@ -20,7 +38,7 @@
       {% endfor %}
     </nav>
   </div>
-
+  
   <div class="wrapper-footer-desktop">
     <footer class="footer">
       {% include footer.html %}
