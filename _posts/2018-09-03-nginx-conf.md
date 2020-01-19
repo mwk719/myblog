@@ -1,7 +1,7 @@
 ---
 layout: post
 title: nginx.conf相关配置
-date: 2020-01-03
+date: 2018-09-03
 Author: minweikai
 tags: [nginx]
 comments: true
