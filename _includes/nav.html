@@ -1,7 +1,10 @@
 <div class="wrapper-sidebar">
 
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 	<!-- HTML elements for search -->
-	<p class="search">搜索栏&nbsp;<input style="height: 25px;" type="text" id="search-input" placeholder="Search blog posts.."></p>
+	<p class="search">搜索栏&nbsp;<input style="height: 25px;" type="text" id="search-input" placeholder="Search blog posts..">
+	<span id="busuanzi_container_site_pv" style="text-align: center;bottom: 100px;color: #9da5a7eb;">访问量<span id="busuanzi_value_site_pv"></span>次</span>
+	</p>
 	<ul id="results-container"></ul>
 	<!-- or without installing anything -->
 	<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
@@ -38,9 +41,6 @@
       {% endfor %}
     </nav>
   </div>
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  <p id="busuanzi_container_site_pv" style="text-align: center;bottom: 100px;color: #9da5a7eb;">总访问量<span id="busuanzi_value_site_pv"></span>次</p>
   
   <div class="wrapper-footer-desktop">
     <footer class="footer">
