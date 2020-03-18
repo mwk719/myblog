@@ -33,14 +33,14 @@ comments: true
    Optional.ofNullable(m.get(1)).isPresent() //判断该map中key值为1是否存在，m可以为null
    ```
 
-4. ```Java
+4. ```java
    Map m =new HashMap();
    Optional.ofNullable(m.get(1)).get()； //取出该值，不存在时抛出NPE；
    //.orElse(default)值不存在时取出default的值
    Optional.ofNullable(m.get(1)).orElse(10); //取出该值，不存在时取10；
    ```
 
-5. ```Java
+5. ```java
    UserDto userDto =new UserDto();
    userDto.setUserName("http://minwk.top/");
    //.map()可以映射返回对象指定属性的值
@@ -48,7 +48,7 @@ comments: true
    System.out.println(Optional.ofNullable(userDto).map(u->u.getUserName()).get()); //返回用户名
    ```
 
-6. ```Java
+6. ```java
    UserDto userDto = null;
    Optional.ofNullable(userDto).map(u->u.getUserName()).orElse("http://minwk.top/"); //userDto对象为空时返回默认值，u.getUserName()为空时也会返回默认值，相当之简洁
    
