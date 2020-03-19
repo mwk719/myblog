@@ -129,9 +129,8 @@ comments: true
 
    目前就用到这么多，等用到新的再补充！
 
-## 参考
+## 资料
 
-
-[Java的Stream流式处理]: 		"https://blog.csdn.net/qq_20989105/article/details/81234175"
-[Java 8 Stream]: 	"https://www.runoob.com/java/java8-streams.html"
+[Java的Stream流式处理](https://blog.csdn.net/qq_20989105/article/details/81234175)
+[Java 8 Stream](https://www.runoob.com/java/java8-streams.html)
 
