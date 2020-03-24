@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stream-流式处理
+title: Stream-流式处理心得
 date: 2020-03-19
 Author: minweikai
 tags: [技巧]
@@ -131,6 +131,6 @@ comments: true
 
 ## 资料
 
-[Java的Stream流式处理](https://blog.csdn.net/qq_20989105/article/details/81234175)
-[Java 8 Stream](https://www.runoob.com/java/java8-streams.html)
+- [Java的Stream流式处理](https://blog.csdn.net/qq_20989105/article/details/81234175)
+- [Java 8 Stream](https://www.runoob.com/java/java8-streams.html)
 
