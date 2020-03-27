@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Stream-流式处理心得
+title: Stream-流式处理的常用操作你GET到了吗？
 date: 2020-03-19
 Author: minweikai
 tags: [技巧]
 comments: true
 ---
 
-## Java8的新特性
+## 特性
 
 1. 对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。
 2. 借助于同样新出现的Lambda表达式，极大的提高编程效率和程序可读性。
