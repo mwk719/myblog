@@ -30,6 +30,11 @@ top -p pid #某线程的运行信息
 ps -aux | grep 服务名称 #查看服务CPU和内存的占用率，内存占用数据单位k
 free -m  #cpu&内存的使用
 df -h  #磁盘的使用
+
+#Linux查看/var/log/wtmp文件查看可疑IP登陆
+last -f /var/log/wtmp
+#寻找可疑IP登陆次数
+vim /var/log/secure
 ```
 
 
