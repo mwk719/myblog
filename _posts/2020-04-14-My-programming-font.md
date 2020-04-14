@@ -13,6 +13,8 @@ comments: true
 
 接下来我要介绍的mplus-fonts字体，简称m+字体，它就蛮符合我的需求。
 
+先出一波对比图，看看差别：
+
 | m+                                                           | courier new                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![image.png](https://i.loli.net/2020/04/13/8UyWwRTKgPdOXl1.png) | ![image.png](https://i.loli.net/2020/04/13/UD7kHtKh1Fl2doZ.png) |
