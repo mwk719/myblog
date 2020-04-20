@@ -33,8 +33,13 @@ df -h  #磁盘的使用
 
 #Linux查看/var/log/wtmp文件查看可疑IP登陆
 last -f /var/log/wtmp
+#登陆用户名、时间、IP
+who /var/log/wtmp
 #寻找可疑IP登陆次数
 vim /var/log/secure
+#切换到root或某个用户名下
+su - 用户名/root
+输入  history #能看到这个用户历史命令，默认最近的1000条
 ```
 
 
