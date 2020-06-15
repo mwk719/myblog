@@ -41,12 +41,12 @@ import java.util.concurrent.Semaphore;
 public class Cybercafe {
 
 	/**
-	 * 电脑数量
+	 * 电脑数量-可容纳并发
 	 */
 	private static int computerCount = 5;
 
 	/**
-	 * 客户数量
+	 * 客户数量-最大并发
 	 */
 	private static int customerCount = 8;
 
@@ -98,6 +98,12 @@ public class Cybercafe {
 }
 
 ```
+
+### 执行结果
+
+![image-20200615174508065](http://qn.minwk.top/img/image-20200615174508065.png)
+
+先是可容纳最大并发执行5个线程，剩余3个线程阻塞，等待某个线程执行完成，被阻塞线程进入执行。
 
 ### 其他方法
 
