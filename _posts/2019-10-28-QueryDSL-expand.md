@@ -49,6 +49,22 @@ return jPAQueryFactory.select(type2.id)
 
 创建对应对象和别名，这样关联查询时才会区分。
 
+## 3. 格式化字段进行查询
+
+```java
+QHajOrder order = QHajOrder.hajOrder;
+		//格式化字段，按每日格式化
+		StringTemplate dateExpr = Expressions.stringTemplate("DATE_FORMAT({0},'%Y-%m-%d')", order.createTime);
+		return jpaQueryFactory.select(dateExpr,order.id.count())
+				.from(order)
+				.orderBy(order.id.desc())
+				.groupBy(dateExpr)
+				.limit(5)
+				.fetch();
+```
+
+获取到每日订单数量
+
 资料：
 
 [github-querydsl资源](https://github.com/querydsl/querydsl/)
