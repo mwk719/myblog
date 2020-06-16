@@ -25,6 +25,26 @@ body {
   line-height: 1.7em;
 }
 
+/**************/
+/*  暗黑模式  */
+/**************/
+.dark-mode :visited, .dark-mode :visited * {
+    color: rgb(211, 138, 138) !important;
+}
+.dark-mode :link, .dark-mode :link * {
+    color: #8db2e5 !important;
+}
+.dark-mode a {
+    background-color: rgba(255, 255, 255, 0.01) !important;
+}
+.dark-mode * {
+    border-color: #555555 !important;
+}
+.dark-mode, .dark-mode * {
+    color: #eeeeee !important;
+    background-color: #292929 !important;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1000px;

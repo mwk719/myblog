@@ -1,5 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html id ="html" class="dark-mode">
+  <script>
+ //定时控制
+	var myDate = new Date;
+	var start = 7;
+	var end = 20;
+
+	var h = myDate.getHours();
+
+	if (h >= 7 && h <= 20) {
+        //日间模式
+        this.removeClass(document.getElementsByTagName('html')[0], 'dark-mode');
+	}else{
+        //夜间模式
+        this.addClass(document.getElementsByTagName('html')[0], 'dark-mode');
+	}
+
+	function hasClass(ele, cls) {
+        return ele.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"))
+    };
+
+	function addClass(ele, cls) {
+        if (!this.hasClass(ele, cls)) ele.className += " " + cls
+     };
+
+    function removeClass(ele, cls) {
+        if (this.hasClass(ele, cls)) {
+          var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)")
+          ele.className = ele.className.replace(reg, " ")
+        }
+    };
+ 	
+  </script>
   {% include head.html %}
   <body>
     {% include nav.html %}
