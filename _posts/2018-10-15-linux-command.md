@@ -40,6 +40,12 @@ vim /var/log/secure
 #切换到root或某个用户名下
 su - 用户名/root
 输入  history #能看到这个用户历史命令，默认最近的1000条
+
+#内存泄漏处理
+1. 获取内存详情 jmap -dump:format=b,file=e.bin pid 
+   这种方式可以用 jvisualvm.exe 进行内存分析，或者采用 Eclipse Memory Analysis Tools (MAT)这个工具
+2. https://www.cnblogs.com/baihuitestsoftware/articles/6491344.html
+
 ```
 
 
