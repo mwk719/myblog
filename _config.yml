@@ -45,7 +45,7 @@ footer-links:
   email: #fromendworld@outlook.com 
   facebook: #https://www.facebook.com/<>
   flickr: #https://www.flickr.com/<>
-  github: mwk719/LOFFER #https://github.com/<>
+  github: mwk719 #https://github.com/<>
   gitee: mwk719 #https://gitee.com/<>
   csdn: weixin_41187876 #https://blog.csdn.net/<>
   instagram: #https://instagram.com/<>
@@ -122,5 +122,3 @@ exclude:
   - README.md
   - CNAME
 
-
-theme: jekyll-theme-cayman
