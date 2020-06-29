@@ -29,7 +29,7 @@ comments: true
 
 使用FileInputStream读取文件的字节数组
 
-```Java
+```java
 //实现代码
 public static void main(String[] args) {
    //普通文本文件
@@ -54,7 +54,7 @@ static byte[] readBytes(File file) {
 
 使用FileOutputStream根据字节数组生成文件，结合以上的读取字节数组方法就可以实现文件的复制
 
-```Java
+```java
 //实现代码
 public static void main(String[] args) {
 		//原文件
