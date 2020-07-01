@@ -6,3 +6,6 @@ Author: minweikai
 tags: [工具]
 comments: true
 ---
+
+1. java代码格式为小写java
+
