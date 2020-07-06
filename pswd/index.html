@@ -3,14 +3,13 @@ layout: page
 title: 生成访问密码
 permalink: /pswd/
 ---
-
+<meta name="viewport" content="width=device-width" initial-scale="1"/>
 <style>
 	input {
 		width: 150px;
 		height: 30px;
 	}
 </style>
-
 <form>
 	名称:<br>
 	<input type="text" id="name"/>
@@ -20,8 +19,8 @@ permalink: /pswd/
 	<br>
 	密码 11位:<br>
 	<input type="text" id="pswd" readonly="readonly"/>
-	<br>提交<br>
-	<input type="button" id="submit"/>
+	<br><br>
+	<input type="button" id="submit" value="提交">
 </form>
 
 <p>名称：小写 常见英文名称 > 中文拼音首字母</p>
@@ -40,11 +39,8 @@ permalink: /pswd/
             var name = $("#name").val();
             var key = $("#key").val();
             var hash = md5(name + key).substring(0, 8);
-            alert(hash);
             var pswd1 = hash.substring(0, 4) + "*"
-            alert(pswd1);
             var pswd2 = hash.substring(4, 8) + "."
-            alert(pswd2);
             $("#pswd").val("k" + pswd1 + pswd2);
         })
     });
