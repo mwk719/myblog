@@ -1,0 +1,48 @@
+---
+layout: page
+title: 访问密钥
+permalink: /pswd/
+---
+
+<style>
+	input {
+		width: 150px;
+		height: 30px;
+	}
+</style>
+
+<form>
+	名称:<br>
+	<input type="text" id="name"/>
+	<br>
+	密钥:<br>
+	<input type="text" id="key"/>
+	<br>
+	密码:<br>
+	<input type="text" id="pswd" readonly="readonly"/>
+	<br>提交<br>
+	<input type="button" id="submit"/>
+</form>
+
+<p>名称：小写 常见英文名称 > 中文拼音首字母</p>
+<p>密钥：无限制，要记牢</p>
+<p>密码：</p>
+<p>* 以k开头，小写md5(名称+密钥)的前12位，index[5]替换为星号* index[11]替换为小数点.</p>
+<p>* 若不允许输入特殊符号，则将符号替换为小写k;</p>
+<p>* 若必须存在大写字母，则从前往后第一个字母可以大写；</p>
+<p>* 若输入限制小于12位则从后往前舍去超出的值，使其刚好达到限定位数。</p>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.16.0/js/md5.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#submit").click(function () {
+            var name = $("#name").val();
+            var key = $("#key").val();
+            var hash = md5(name + key).substring(0, 12);
+            var pswd1 = hash.substring(0, 4) + "*"
+            var pswd2 = hash.substring(6, 10) + "."
+            $("#pswd").val("k" + pswd1 + pswd2);
+        })
+    });
+</script>
