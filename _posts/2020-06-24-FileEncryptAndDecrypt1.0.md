@@ -9,7 +9,7 @@ comments: true
 
 - [x] [字节流运算实现文件的加密解密1.0](https://minwk.top/FileEncryptAndDecrypt1.0/) 实现对从文件字节流的操作、复制文件，到字节运算实现文件的加密解密
 - [x] [字节流运算实现文件的加密解密2.0](https://minwk.top/FileEncryptAndDecrypt2.0/) 优化文件字节流的操作、探讨字节运算问题
-- [ ] [字节流运算实现文件的加密解密3.0](https://minwk.top/FileEncryptAndDecrypt3.0/) 实现文件加密解密的实战应用，可制作为jar包用于日常文件与文件夹的加密解密
+- [x] [字节流运算实现文件的加密解密3.0](https://minwk.top/FileEncryptAndDecrypt3.0/) 实现文件加密解密的实战应用，可制作为jar包用于日常文件与文件夹的加密解密
 
 ### 简介
 

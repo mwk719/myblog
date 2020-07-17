@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 你还不知道吗？这里有最简单的使用Java进行文件加密
-date: 2020-07-13
+date: 2020-07-17
 Author: minweikai
 tags: [工具,好玩]
 comments: true
@@ -100,4 +100,8 @@ public static void main(String[] args) {
 - 加密完后要牢记密码哦，否则忘记密码则无法解密。其实也可以破解，就是将密码从-128试到127，总共试256次总有一个是对的。这是因为我的加密算法是对byte进行计算的，而byte值的范围只有-128~127
 - 这里讨论的不是说加密算法，而是加密方式。别人不知道你的加密方式，即便知道密码也无法破解，所以说还是要对症下药。你可以对整体的字节流或者部分字节流加密，这也是一种方式
 
-完整代码路径：https://gitee.com/mwk719/spring-learn/blob/master/src/main/java/com/mwk/encrypt/FileEncryptAndDecryptSalt_3.java
+资源路径：
+
+- [https://gitee.com/mwk719-见完整代码](https://gitee.com/mwk719/spring-learn/blob/master/src/main/java/com/mwk/encrypt/FileEncryptAndDecryptSalt_3.java)
+
+- [jar包下载](https://gitee.com/mwk719/spring-learn/releases/addpwd-1.0.jar)
