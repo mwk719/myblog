@@ -94,3 +94,19 @@ PS. 以下可能会出现一些专业名称，你了解的话还好，不了解�
 ![image-20200619145348337](http://qn.minwk.top/img/image-20200619145348337.png)
 
 如何避免发生OOM，网上资料很多，我就不赘述了。
+
+### 步骤总结
+
+```bash
+1. #下载Mat工具，并解压
+https://www.eclipse.org/mat/downloads.php
+
+2. #导出当时内存镜像
+jmap -dump:format=b,file=oom.dump pid
+
+3. #使用MAT文件中ParseHeapDump.sh脚本分析 dump，该命令测试环境会执行30秒左右，正式环境估计会执行1-2分钟
+./ParseHeapDump.sh oom.dump  org.eclipse.mat.api:suspects org.eclipse.mat.api:overview org.eclipse.mat.api:top_components
+
+4. #下载生成的三个压缩包就可以分析了
+```
+
