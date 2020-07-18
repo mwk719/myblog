@@ -4,6 +4,19 @@ title: 生成访问密码
 permalink: /pswd/
 ---
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.16.0/js/md5.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script language="JavaScript">
+    var password = "";
+    password = prompt('请输入密码 (本网站需输入密码才可进入):', '');
+    if (password !== "minwk.top") {
+        alert("密码不正确,无法进入本站!!");
+        window.opener = null;
+        window.close();
+    }  // 密码不正确就关闭//-->
+</script>
+
 <style>
 	input {
 		width: 150px;
@@ -15,7 +28,7 @@ permalink: /pswd/
 	<input type="text" id="name"/>
 	<br>
 	密钥:<br>
-	<input type="text" id="key"/>
+	<input type="password" id="key"/>
 	<br>
 	密码 11位:<br>
 	<input type="text" id="pswd" readonly="readonly"/>
@@ -23,7 +36,7 @@ permalink: /pswd/
 	<input type="button" id="submit" value="提交">
 </form>
 
-<p>名称：小写 常见英文名称 > 中文拼音首字母</p>
+<p>名称：app或网站 小写 常见英文名称 > 中文拼音首字母</p>
 <p>密钥：无限制，要记牢</p>
 <p>密码：</p>
 <p>* 以k开头，小写md5(名称+密钥)的前8位，index[3]后插入星号* index[7]后插入小数点.</p>
@@ -31,8 +44,6 @@ permalink: /pswd/
 <p>* 若必须存在大写字母，则k大写；</p>
 <p>* 若输入限制小于10位则从后往前舍去超出的值，使其刚好达到限定位数。</p>
 
-<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.16.0/js/md5.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
         $("#submit").click(function () {
