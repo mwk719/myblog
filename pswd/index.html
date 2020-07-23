@@ -9,12 +9,13 @@ permalink: /pswd/
 
 <script language="JavaScript">
     var password = "";
+    var secretKey = "3ea6080b8f086b92293e0f6cc2ce6749";
     password = prompt('请输入密码 (本网站需输入密码才可进入):', '');
-    if (password !== "minwk.top") {
+    if (md5(password) !== secretKey) {
+        // 密码不正确就关闭//-->
         alert("密码不正确,无法进入本站!!");
-        window.opener = null;
-        window.close();
-    }  // 密码不正确就关闭//-->
+        window.location.href="https://minwk.top/";
+    }
 </script>
 
 <style>
