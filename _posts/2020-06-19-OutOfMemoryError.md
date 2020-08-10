@@ -15,6 +15,11 @@ PS. 以下可能会出现一些专业名称，你了解的话还好，不了解�
 
 ![image-20200619112703492](http://qn.minwk.top/img/image-20200619112703492.png)
 
+#### 我遇到的场景：
+
+1. 慢SQL：在业务处理中前一步查到的数据交给下一步处理，而下一步又查询的很慢。导致大量线程堆积在内存中等待执行，然后大量的数据等待下一步处理无法释放，最终结果就内存溢出了。
+2. 阿里OSSClient没有关闭：项目中用到了阿里oss存储照片，每次上传完图片图片后没有及时shutdown，OSSClient连接存在内存中未关，占用大量内存。
+
 #### 常见解决方案
 
 1. 重启项目
@@ -38,9 +43,10 @@ PS. 以下可能会出现一些专业名称，你了解的话还好，不了解�
    2. 或者在启动命令里配置启动参数，下次出现OOM时会自动生成oom.dump
 
       ```bash
-      -XX:+HeapDumpOnOutOfMemoryError
-      -XX:HeapDumpPath=/log/oom.dump
+      -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/log/oom.dump
       ```
+      
+      ![image-20200810155050931](http://qn.minwk.top/img/image-20200810155050931.png)
 
 2. ##### Windows环境 - 对已导出的dump文件进行分析
 
@@ -52,7 +58,7 @@ PS. 以下可能会出现一些专业名称，你了解的话还好，不了解�
 
       ![image-20200619120831992](http://qn.minwk.top/img/image-20200619120831992.png)
 
-      ![image-20200619121046019](http://qn.minwk.top/img/image-20200619121046019.png)![image-202
+      ![image-20200619121046019](http://qn.minwk.top/img/image-20200619121046019.png)
 
       ![image-20200619121310897](http://qn.minwk.top/img/image-20200619121310897.png)
 

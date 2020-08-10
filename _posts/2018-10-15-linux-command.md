@@ -7,7 +7,7 @@ tags: [Linux,命令]
 comments: true
 ---
 
-# 我的重要但不常用命令
+# 常用命令
 
 ## Linux维护
 
@@ -26,6 +26,12 @@ top -p pid #某线程的运行信息
 #top 命令界面交互命令：
  m/M #内存占用排序
  p/P #cpu占用排序
+
+#查询进程的启动时间和运行时间
+ps -eo pid,lstart,etime | grep 5176
+
+#打印堆信息， 包括 JVM版本、垃圾收集器、堆配置、堆各个区域使用情况
+jmap -heap pid   
 
 ps -aux | grep 服务名称 #查看服务CPU和内存的占用率，内存占用数据单位k
 free -m  #cpu&内存的使用
