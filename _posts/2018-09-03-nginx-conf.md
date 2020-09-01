@@ -1,6 +1,6 @@
 ---
 layout: post
-title: nginx.conf相关配置
+title: nginx反向代理和配置密码访问
 date: 2018-09-03
 Author: minweikai
 tags: [nginx]
@@ -91,19 +91,19 @@ http {
         }
 		#反向代理端口，访问 127.0.0.1/api/
 		location /api/ {
-			proxy_pass http://172.18.196.230:8077/;
+			proxy_pass http://192.168.7.19:8077/;
 			client_max_body_size 10m;
 		}
 		
         #反向代理端口，访问 127.0.0.1/hle/
 		location /hle/ {
-             proxy_pass http://172.18.196.230:8067/;
+             proxy_pass http://192.168.7.19:8077/;
 			client_max_body_size 10m;
         }
 
         #访问输密码验证
         location / {
-            proxy_pass http://172.18.196.230:5601$request_uri;
+            proxy_pass http://192.168.7.19:5601$request_uri;
             client_max_body_size 10m;
             auth_basic "登陆验证";
             auth_basic_user_file /etc/nginx/htpasswd;   #/etc/nginx/htpasswd是密码文件，路径自定义
