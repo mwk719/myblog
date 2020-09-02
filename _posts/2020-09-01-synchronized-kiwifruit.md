@@ -97,5 +97,6 @@ comments: true
 
 - [临渭区长寿塬首届猕猴桃果王争霸赛](http://www.linwei.gov.cn/xwzx/bmdt/112889.htm)
 - [我们村村民拍的猕猴桃园的视频，这里都是淳朴的农民](https://v.qq.com/x/page/w0714ylalza.html)
+- [源码路径](https://github.com/mwk719/spring-learn/blob/master/src/main/java/com/mwk/thread/SynchronizedKiwifruitThread.java)
 
 本博客持续更新。。。
