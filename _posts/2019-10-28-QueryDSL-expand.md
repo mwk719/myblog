@@ -9,7 +9,7 @@ comments: true
 
 *来自官网的介绍（翻译版）*
 
-## 前言
+### 前言
 
 Querydsl是一个框架，可用于构造静态类型的类似SQL的查询。可以通过诸如Querydsl之类的流畅API构造查询，而不是将查询编写为内联字符串或将其外部化为XML文件。
 
@@ -21,9 +21,9 @@ Querydsl是一个框架，可用于构造静态类型的类似SQL的查询。可
 - 更好地重构域类型的更改；
 - 跟写SQL一样的方便；
 
-## 1. 简介
+### 1. 简介
 
-## 1.1. 背景
+#### 1.1. 背景
 
 Querydsl是出于以类型安全的方式维护HQL查询的需要而诞生的。HQL查询的增量构造需要String连接，并导致难以阅读的代码。通过纯字符串对域类型和属性的不安全引用是基于字符串的HQL构造的另一个问题。
 
@@ -31,7 +31,7 @@ Querydsl是出于以类型安全的方式维护HQL查询的需要而诞生的。
 
 用于Hibernate的HQL是Querydsl的第一种目标语言，但如今它支持JPA，JDO，JDBC，Lucene，Hibernate Search，MongoDB，Collections和RDFBean作为后端。
 
-## 1.2. 原则
+#### 1.2. 原则
 
 *类型安全* 是Querydsl的核心原则。查询是根据生成的反映查询类型的属性来构造的。函数/方法调用也以完全类型安全的方式构造。
 
@@ -43,9 +43,9 @@ Querydsl是出于以类型安全的方式维护HQL查询的需要而诞生的。
 
 本文针探讨的是使用时遇到的一些问题
 
-## 2. 拓展示例
+### 2. 拓展示例
 
-### 1. Projections简化代码，使代码更优雅
+#### 1. Projections简化代码，使代码更优雅
 
 使用Projections方法可以更简单更方便的返回自定义的参数属性
 
@@ -83,7 +83,7 @@ return jPAQueryFactory.select(type2.id)
 
 创建对应对象和别名，这样关联查询时才会区分。
 
-### 3. 格式化字段进行查询
+#### 3. 格式化字段进行查询
 
 ```java
 //获取到每日订单数量
@@ -98,7 +98,7 @@ QHajOrder order = QHajOrder.hajOrder;
 				.fetch();
 ```
 
-### 4. 可添加判断逻辑，根据业务需要拼接，在代码中书写更便捷
+#### 4. 可添加判断逻辑，根据业务需要拼接，在代码中书写更便捷
 
 ```java
 QHajOrder order = QHajOrder.hajOrder;
@@ -116,7 +116,7 @@ if (ObjectUtil.isNull(count)) {
 return count;
 ```
 
-### 5. 分页处理
+#### 5. 分页处理
 
 ```Java
 public List<HajOrder> getOrderListByPage(Pager page){
@@ -134,9 +134,79 @@ public List<HajOrder> getOrderListByPage(Pager page){
 }
 ```
 
+#### 6.多数据源配置使用
 
+如果你还没配置多数据源使用，可以参照这个博客 [Spring Boot 2.x基础教程：Spring Data JPA的多数据源配置](http://blog.didispace.com/spring-boot-learning-21-3-8/)
 
-## 资料：
+之前一直是单数据源使用，在多数据源中使用可能会报这样的错
+
+```java
+java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: * is not mapped
+
+at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:350)
+	at com.sun.proxy.$Proxy119.createQuery(Unknown Source)
+	at com.querydsl.jpa.impl.AbstractJPAQuery.createQuery(AbstractJPAQuery.java:101)
+	at com.querydsl.jpa.impl.AbstractJPAQuery.fetchResults(AbstractJPAQuery.java:211)
+```
+
+配置多个实体管理器EntityManager
+
+```
+@SpringBootApplication
+@EnableJpaAuditing
+public class ApiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ThirdApiApplication.class, args);
+	}
+
+	/**
+	 * Spring管理JPAQueryFactory
+	 * 默认
+	 * @param entityManager
+	 * @return
+	 */
+	@Bean
+	public JPAQueryFactory jpaQueryFactory(@Qualifier("entityManagerPrimary") EntityManager entityManager) {
+		return new JPAQueryFactory(entityManager);
+	}
+
+	/**
+	 * 新配置数据源wmsJpaQueryFactory
+	 *
+	 * @param entityManager
+	 * @return
+	 */
+	@Bean
+	public JPAQueryFactory wmsJpaQueryFactory(@Qualifier("entityManagerSecondary") EntityManager entityManager) {
+		return new JPAQueryFactory(entityManager);
+	}
+
+}
+```
+
+使用
+
+```java
+//默认的数据源
+@Autowired
+private JPAQueryFactory jpaQueryFactory;
+
+//新的数据源
+@Autowired
+private JPAQueryFactory wmsJpaQueryFactory;
+
+public void test() {
+	QCustomer customer = QCustomer.customer;
+    Customer bob = wmsJpaQueryFactory.select(customer)
+      .from(customer)
+      .where(customer.firstName.eq("Bob"))
+      .fetchOne();
+}
+
+```
+
+### 资料：
 
 [github-querydsl资源](https://github.com/querydsl/querydsl/)
 
