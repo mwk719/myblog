@@ -67,7 +67,7 @@ return jpaQueryFactory.select(
 
 Projections的bean方法第一个属性是要查询对象的泛型类，对象中orderDetails.“commodityNo”属性就是CommoditySalesDto对应属性，大小写相同。如属性不同时可以使用as来为指定结果集添加别名对应dto内属性。
 
-### 2. 关联同一张表两次进行查询
+#### 2. 关联同一张表两次进行查询
 
 有时遇到一些查询需要在同一张表关联查询两次或多次，知道在sql中怎么写，但是在querydsl中就不知道怎么下手了，方法其实很简单
 
@@ -185,7 +185,7 @@ public class ApiApplication {
 }
 ```
 
-使用
+业务使用中按如下操作就可以了
 
 ```java
 //默认的数据源
