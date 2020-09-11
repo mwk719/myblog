@@ -7,6 +7,21 @@ tags: [工具]
 comments: true
 ---
 
+#### Query Creation
+
+Generally, the query creation mechanism for JPA works as described in “[Query methods](https://docs.spring.io/spring-data/jpa/docs/2.3.3.RELEASE/reference/html/#repositories.query-methods)”. The following example shows what a JPA query method translates into:
+
+Example 57. Query creation from method names
+
+```
+public interface UserRepository extends Repository<User, Long> {
+
+  List<User> findByEmailAddressAndLastname(String emailAddress, String lastname);
+}
+```
+
+We create a query using the JPA criteria API from this, but, essentially, this translates into the following query: `select u from User u where u.emailAddress = ?1 and u.lastname = ?2`. Spring Data JPA does a property check and traverses nested properties, as described in “[Property Expressions](https://docs.spring.io/spring-data/jpa/docs/2.3.3.RELEASE/reference/html/#repositories.query-methods.query-property-expressions)”.
+
 ### jpa-方法名称中受支持的关键字
 
 | Keyword                | Sample                                                       | JPQL snippet                                                 |
@@ -35,6 +50,26 @@ comments: true
 | `True`                 | `findByActiveTrue()`                                         | `… where x.active = true`                                    |
 | `False`                | `findByActiveFalse()`                                        | `… where x.active = false`                                   |
 | `IgnoreCase`           | `findByFirstnameIgnoreCase`                                  | `… where UPPER(x.firstame) = UPPER(?1)`                      |
+
+#### Limiting Query Results
+
+The results of query methods can be limited by using the `first` or `top` keywords, which can be used interchangeably. An optional numeric value can be appended to `top` or `first` to specify the maximum result size to be returned. If the number is left out, a result size of 1 is assumed. The following example shows how to limit the query size:
+
+Example 18. Limiting the result size of a query with `Top` and `First`
+
+```java
+User findFirstByOrderByLastnameAsc();
+
+User findTopByOrderByAgeDesc();
+
+Page<User> queryFirst10ByLastname(String lastname, Pageable pageable);
+
+Slice<User> findTop3ByLastname(String lastname, Pageable pageable);
+
+List<User> findFirst10ByLastname(String lastname, Sort sort);
+
+List<User> findTop10ByLastname(String lastname, Pageable pageable);
+```
 
 ### jpa文档地址
 
