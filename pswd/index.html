@@ -13,7 +13,7 @@ permalink: /pswd/
     var secretKey = "3ea6080b8f086b92293e0f6cc2ce6749";
     password = prompt('请输入密码 (本网站需输入密码才可进入):', '');
     if (md5(password) !== secretKey) {
-        // 密码不正确就关闭//-->
+        // 密码不正确就关闭
         alert("密码不正确,无法进入本站!!");
         window.location.href="https://minwk.top/";
     }
@@ -29,11 +29,14 @@ permalink: /pswd/
 	名称:<br>
 	<input type="text" id="name"/>
 	<br>
+	账号:<br>
+	<input type="text" id="account_number"/>
+	<br>
 	密钥:<br>
 	<input type="password" id="key"/>
 	<br>
 	密码 11位:<br>
-	<input type="text" id="pswd" readonly="readonly"/>
+	<input type="text" id="pswd"/>
 	<input class="btn" data-clipboard-action="copy" 
 	data-clipboard-target="#pswd" type="button" value="复制"
 	style="width: 50px;"/>
@@ -42,10 +45,11 @@ permalink: /pswd/
 </form>
 
 <p>名称：app或网站 小写 常见英文名称 > 中文拼音首字母</p>
+<p>账号：登录网站的账号，非必填</p>
 <p>密钥：无限制，要记牢</p>
 <p>密码：</p>
 <p>* 以k开头，小写md5(名称+密钥)的前8位，index[3]后插入星号* index[7]后插入小数点.</p>
-<p>* 若不允许输入特殊符号，则将符号替换为小写k;</p>
+<p>* 若不允许输入特殊符号，则剔除符号;</p>
 <p>* 若必须存在大写字母，则k大写；</p>
 <p>* 若输入限制小于10位则从后往前舍去超出的值，使其刚好达到限定位数。</p>
 
@@ -53,8 +57,17 @@ permalink: /pswd/
     $(function () {
         $("#submit").click(function () {
             var name = $("#name").val();
+            if(name === ""){
+                alert("名称不能为空");
+                return;
+            }
             var key = $("#key").val();
-            var hash = md5(name + key).substring(0, 8);
+            if(key === ""){
+                alert("密钥不能为空");
+                return;
+            }
+            var account_number = $("#account_number").val();
+            var hash = md5(name + key + account_number).substring(0, 8);
             var pswd1 = hash.substring(0, 4) + "*"
             var pswd2 = hash.substring(4, 8) + "."
             $("#pswd").val("k" + pswd1 + pswd2);
